@@ -5,14 +5,14 @@ const {compress, getLocation} = require("./controllers");
 
 const app = express();
 
-// app.use(helmet({
-//     frameguard: {
-//         action: 'deny'
-//     },
-//     dnsPrefetchControl: {
-//         allow: true
-//     }
-// }));
+app.use(helmet({
+    frameguard: {
+        action: 'deny'
+    },
+    dnsPrefetchControl: {
+        allow: true
+    }
+}));
 
 app.get('/*.js|*.css|*.html|*.ttf/', compress);
 

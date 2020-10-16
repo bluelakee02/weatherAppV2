@@ -35,7 +35,7 @@ exports.getLocation = async (req, res) => {
         const response = await axios.get(apiRequest);
         const {data} = response;
 
-        const woeid = data[0]?.woeid;
+        const woeid = data[0] && data[0].woeid;
 
         if (!woeid) {
             return res.send([{error: `Location ${location} not found`}]);
