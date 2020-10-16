@@ -66,7 +66,7 @@ module.exports = (env, argv) => {
                 minRatio: 0.8,
             }),
             new HtmlWebpackPlugin({
-                title: isDevBuild ? 'DEV BUILD' : 'PRODUCTION',
+                title: isDevBuild ? 'DEV BUILD' : 'Weather App',
                 cache: true,
                 inject: 'head',
                 scriptLoading: 'defer',
@@ -99,7 +99,6 @@ module.exports = (env, argv) => {
             moduleIds: 'deterministic',
             splitChunks: {
                 cacheGroups: {
-                    vendors: {
                         test: /node_modules\/(?!react|react-dom\/).*/,
                         name: "vendors",
                         chunks: "all",
