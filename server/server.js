@@ -11,6 +11,14 @@ app.use(helmet({
     },
     dnsPrefetchControl: {
         allow: true
+    },
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'"],
+            imgSrc: ["'self'", "https://www.metaweather.com/"],
+            styleSrc: ["'self'", "https:", "'unsafe-inline'"]
+        },
     }
 }));
 
