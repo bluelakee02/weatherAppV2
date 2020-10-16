@@ -1,0 +1,32 @@
+.mainButton {
+  //border: 5px solid $green;
+  background-color: $blue-01;
+  color: #fff;
+  border: 0;
+  margin-top: 5px;
+
+  &:hover {
+    filter: brightness(120%);
+  }
+  font-size: .875rem;
+  line-height: 1.29;
+  letter-spacing: .16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 20rem;
+  min-height: 3rem;
+  padding: calc(0.875rem - 3px) 63px calc(0.875rem - 3px) 15px;
+  text-align: left;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.rotate {
+  transition: transform .35s ease-in-out;
+
+  &.down {
+    transform: rotate(180deg);
+  }
+}

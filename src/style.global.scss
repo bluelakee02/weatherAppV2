@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('./assets/styles/fonts/RobotoSlab-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('./assets/styles/fonts/RobotoSlab-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('./assets/styles/fonts/RobotoSlab-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('./assets/styles/fonts/RobotoSlab-Bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/styles/fonts/IBMPlexSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/styles/fonts/IBMPlexSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/styles/fonts/IBMPlexSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/styles/fonts/IBMPlexSans-Bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+body,
+html, #root {
+  width: 100%;
+  height: 100%;
+  color: $grey-02;
+  background-color: #ffffff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: em(16);
+}
+
+#root {
+    display: flex;
+}
+
+h1, h2 {
+  font-family: 'RobotoSlab', serif;
+  background-color: $blue-01;
+  color: #fff;
+  padding: 0 5px;
+}

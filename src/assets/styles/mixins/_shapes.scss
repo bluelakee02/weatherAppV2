@@ -1,0 +1,85 @@
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin skeleton {
+  position: relative;
+  padding: 0;
+  background: #e5e5e5;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+    cursor: default;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #c6c6c6;
+    animation-name: skeleton;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    content: '';
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    right: auto;
+    left: 0;
+    width: 0%;
+    opacity: 0.3;
+  }
+  20% {
+    right: auto;
+    left: 0;
+    width: 100%;
+    opacity: 1;
+  }
+  28% {
+    right: 0;
+    left: auto;
+    width: 100%;
+  }
+  51% {
+    right: 0;
+    left: auto;
+    width: 0%;
+  }
+  58% {
+    right: 0;
+    left: auto;
+    width: 0%;
+  }
+  82% {
+    right: 0;
+    left: auto;
+    width: 100%;
+  }
+  83% {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+  96% {
+    right: auto;
+    left: 0;
+    width: 0%;
+  }
+  100% {
+    right: auto;
+    left: 0;
+    width: 0%;
+    opacity: 0.3;
+  }
+}

@@ -1,0 +1,44 @@
+.mainLayout {
+  color: $grey-02;
+  background-color: #fff;
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header  header  header"
+    "nav     main    aside"
+    "footer  footer  footer";
+  height: 100%;
+  width: 100%;
+  grid-gap: 20px;
+}
+
+main {
+  margin: 0 10%;
+}
+
+@media screen and (max-width: $breakpoint-desktop) {
+  .mainLayout {
+    grid-column-gap: 10px;
+  }
+}
+
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .mainLayout {
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+}
+
+
+
+@media screen and (max-width: $breakpoint-tablet) {
+  main {
+    margin: 0 10px;
+  }
+}

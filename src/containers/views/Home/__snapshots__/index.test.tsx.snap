@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home test Matches the snapshot 1`] = `
+<div
+  className="container"
+>
+  <section
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="subSection"
+    >
+      <div
+        className="searchSection"
+      >
+        <input
+          disabled={false}
+          id="location"
+          name="location"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Type location"
+          type="text"
+        />
+        <Button
+          label="Search"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="searchSection"
+        style={
+          Object {
+            "height": "75px",
+          }
+        }
+      />
+    </div>
+    <div
+      className="subSection"
+    />
+  </section>
+</div>
+`;

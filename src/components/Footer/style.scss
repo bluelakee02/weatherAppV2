@@ -1,0 +1,36 @@
+.footer {
+  grid-area: footer;
+  background-color: $blue-01;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  & h2 {
+    background-color: $grey-02;
+    color: $grey-01;
+  }
+
+}
+
+.footerIcon {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 2rem;
+  padding: .5rem;
+  cursor: pointer;
+  outline: none;
+  margin: 0 10px;
+
+  &.active {
+    border: 1px solid $grey-01;
+    color: $grey-01;
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .footer {
+    flex-direction: column;
+  }
+}
+

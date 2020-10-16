@@ -1,0 +1,18 @@
+.header {
+  grid-area: header;
+  background-color: $blue-01;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  & h1 {
+    background-color: $grey-02;
+    color: $grey-01;
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .header {
+    flex-direction: column;
+  }
+}
