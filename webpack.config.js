@@ -99,6 +99,7 @@ module.exports = (env, argv) => {
             moduleIds: 'deterministic',
             splitChunks: {
                 cacheGroups: {
+                    vendors: {
                         test: /node_modules\/(?!react|react-dom\/).*/,
                         name: "vendors",
                         chunks: "all",
