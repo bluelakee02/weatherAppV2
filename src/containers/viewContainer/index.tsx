@@ -2,7 +2,7 @@ import style from './style.scss';
 import React, {Suspense} from 'react';
 import {hot} from 'react-hot-loader/root';
 import {Router} from '@reach/router';
-import {Loading} from '@/components/Loading';
+import {Loading, NotFound} from '@/components/Messages';
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 const LazyLoadedHomeView = React.lazy(() =>
@@ -32,6 +32,7 @@ const ViewsContainer = () => <ErrorBoundary>
                     {/* @ts-ignore */}
                     <LazyLoadedHomeView path="/"/>
                     {/* @ts-ignore */}
+                    <NotFound default />
                 </Router>
             </main>
             <LazyLoadedFooter/>

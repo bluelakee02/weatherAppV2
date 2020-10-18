@@ -3,7 +3,7 @@ import {shallow, mount, render} from 'enzyme';
 
 import { Loading } from './index';
 
-describe('Loading test', () => {
+describe('Messages test', () => {
     it('should match the snapshot', () => {
         expect(shallow(<Loading/>)).toMatchSnapshot();
     });
