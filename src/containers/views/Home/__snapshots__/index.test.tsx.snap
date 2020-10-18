@@ -5,6 +5,7 @@ exports[`Home test Matches the snapshot 1`] = `
   className="container"
 >
   <section
+    className="mainSection"
     style={
       Object {
         "width": "100%",

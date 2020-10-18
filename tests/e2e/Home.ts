@@ -31,5 +31,5 @@ test('Search location works', async t => {
         .click(HomePage.primaryButton)
         .expect(HomePage.weatherCard.exists).ok()
         .expect(HomePage.weatherCard.visible).ok()
-        .expect(HomePage.weatherCard.count).eql(6)
+        .expect(HomePage.weatherCard.count).eql(5)
 });
