@@ -1,12 +1,30 @@
 .responsive {
-  max-width: 100%;
-  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.weatherCardSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 500px;
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "forecast image"
+    "forecast image";
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-flow: column;
 }
 
@@ -17,6 +35,10 @@
   flex-wrap: wrap;
 }
 
+.mainSection {
+  grid-area: forecast;
+}
+
 .searchSection {
   display: flex;
   flex-flow: column;
@@ -25,9 +47,27 @@
   margin: 10px;
 }
 
+.imageSection {
+  grid-area: image;
+  width: 100%;
+}
+
 @media screen and (max-width: $breakpoint-desktop) {
   .subSection {
     justify-content: center;
     align-items: center;
   }
+
+  .container {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "forecast"
+    "image";
+  }
+
+  .weatherCardSection {
+    height: 100%;
+  }
+
 }

@@ -5,9 +5,9 @@
   grid-template-rows: 1fr 5fr 1fr;
   grid-template-columns: 1fr;
   grid-template-areas:
-    "header  header  header"
-    "nav     main    aside"
-    "footer  footer  footer";
+    "header"
+    "main"
+    "footer";
   height: 100%;
   width: 100%;
   grid-gap: 20px;
@@ -22,19 +22,6 @@ main {
     grid-column-gap: 10px;
   }
 }
-
-
-@media screen and (max-width: $breakpoint-tablet) {
-  .mainLayout {
-    grid-template-rows: 1fr 5fr 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "main"
-      "footer";
-  }
-}
-
 
 
 @media screen and (max-width: $breakpoint-tablet) {

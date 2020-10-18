@@ -25,6 +25,6 @@ module.exports = {
     ],
     'rules': {
         'max-len': ['error', {'code': 180, 'tabWidth': 4}],
-        'indent': ['error', 4],
+        'indent': ['error', 4, { "SwitchCase": 1 }],
     },
 };

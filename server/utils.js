@@ -32,6 +32,7 @@ const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const mphToKph = (n) => n * 1.609344;
 
 exports.parseWeatherData = (data) => data.map(day => ({
+    theTemp: day.the_temp.toFixed(1),
     maxTemp: day.max_temp.toFixed(1),
     minTemp: day.min_temp.toFixed(1),
     weatherState: day.weather_state_name,
