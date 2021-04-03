@@ -6,11 +6,6 @@ exports[`Home test Matches the snapshot 1`] = `
 >
   <section
     className="mainSection"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
   >
     <div
       className="subSection"
@@ -28,19 +23,26 @@ exports[`Home test Matches the snapshot 1`] = `
           type="text"
         />
         <Button
+          classname="button"
           label="Search"
           onClick={[Function]}
         />
-      </div>
-      <div
-        className="searchSection"
-        style={
-          Object {
-            "height": "75px",
+        <div
+          className="searchSection"
+          style={
+            Object {
+              "height": "16px",
+            }
           }
-        }
-      />
+        >
+           
+        </div>
+      </div>
     </div>
+  </section>
+  <section
+    className="forecastSection"
+  >
     <div
       className="subSection"
     />

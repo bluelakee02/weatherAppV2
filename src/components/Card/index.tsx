@@ -5,11 +5,11 @@ interface CardProps {
     children
 }
 const Card = (props: CardProps) => {
-    const {children} = props;
+  const {children} = props;
 
-    return <div className={style.container}>
-        {children}
-    </div>
+  return <div className={style.container}>
+    {children}
+  </div>
 }
 
 export default Card;
