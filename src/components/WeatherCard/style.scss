@@ -4,11 +4,16 @@
   justify-content: flex-start;
   align-items: flex-start;
   margin: 10px;
-  > h2, h3 {
+  > h2,
+  h3 {
     margin: 5px 0;
   }
-  > span {
+  > div {
     margin: 2px 0;
+    font-weight: 700;
+    > span {
+      font-weight: 400;
+    }
   }
   font-size: 14px;
 }
