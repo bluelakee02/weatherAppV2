@@ -98,8 +98,8 @@ const Home = () => {
         </div>
         {weatherState && (
           <div className={style.weatherCardSection}>
-            <h2>{title} Today: </h2>
             <div className={style.responsive} style={{ backgroundImage: `url(${getWeatherImage(weatherState || '')})` }}>
+              <h2 className={style.title}>{title} Today: </h2>
               <TodayWeatherCard {...today} />
             </div>
           </div>
