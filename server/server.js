@@ -1,6 +1,9 @@
-const express = require('express');
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+
+const express = require('express');
 const helmet = require('helmet');
+
 const {compress, getLocation} = require("./controllers");
 
 const app = express();

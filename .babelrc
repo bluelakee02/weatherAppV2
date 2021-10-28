@@ -5,7 +5,7 @@
       {
         "useBuiltIns": "usage",
         "corejs": 3,
-        "targets": "> 0.25%, not dead"
+        "targets": "Chrome >= 90, Safari >= 14, Firefox >= 90, Edge >= 90"
       }
     ],
     "@babel/preset-typescript",

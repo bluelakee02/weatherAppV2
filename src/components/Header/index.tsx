@@ -1,10 +1,11 @@
-import style from './style.scss';
 import React from 'react';
 
-const Header = () => <header className={style.header}>
-  <h1>
-        Weather App
-  </h1>
-</header>
+import style from './style.scss';
 
-export default Header
+const Header: React.FC = () => (
+    <header className={style.header}>
+        <h1>Weather App</h1>
+    </header>
+);
+
+export default Header;

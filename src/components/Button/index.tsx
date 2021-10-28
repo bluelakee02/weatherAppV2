@@ -1,10 +1,18 @@
-import style from './style.scss';
 import * as React from 'react';
 
-type ButtonProps = {classname?: string, label: string, onClick?, type?};
+import style from './style.scss';
 
-const Button = (props: ButtonProps) => (
-  <button onClick={props.onClick} className={`${style.mainButton} ${props.classname ?? ''}`}>{props.label}</button>
+interface Props {
+    classname?: string;
+    label: string;
+    onClick?: () => Promise<void>;
+    type?: React.ButtonHTMLAttributes<null>['type'];
+}
+
+const Button: React.FC<Props> = props => (
+    <button type={props.type} onClick={props.onClick} className={`${style.mainButton} ${props.classname ?? ''}`}>
+        {props.label}
+    </button>
 );
 
 export default Button;

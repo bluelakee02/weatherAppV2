@@ -1,10 +1,12 @@
 import {ReactSelector} from 'testcafe-react-selectors';
 
-const HomePageObjectModel = () => ({
-    homeView: ReactSelector('Home'),
-    primaryButton: ReactSelector('Button'),
+import { PomType } from './Common.pom';
+
+const HomePageObjectModel: PomType = () => ({
+    homeView: ReactSelector('views_Home'),
+    primaryButton: ReactSelector('components_Button'),
     textField: ReactSelector('input').withProps({name: 'location'}),
-    weatherCard: ReactSelector('WeatherCard'),
+    weatherCard: ReactSelector('components_WeatherCard'),
 })
 
 export default HomePageObjectModel;

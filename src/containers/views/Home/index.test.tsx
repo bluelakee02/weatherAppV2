@@ -1,5 +1,6 @@
-import * as React from 'react';
 import { shallow, render, mount } from 'enzyme';
+import * as React from 'react';
+
 import Home from './index';
 
 describe('Home test', () => {
@@ -13,7 +14,7 @@ describe('Home test', () => {
   });
 
   it('Has proper nodes', async () => {
-    let wrapper = mount(<Home />);
+    const wrapper = mount(<Home />);
 
     expect(wrapper.find('h1').length).toBe(0);
     expect(wrapper.find('img').length).toBe(0);

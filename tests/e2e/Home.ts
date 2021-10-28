@@ -1,7 +1,8 @@
 
 import { waitForReact } from 'testcafe-react-selectors';
-import HomePageObjectModel from './poms/Home.pom';
+
 import Common from './poms/Common.pom';
+import HomePageObjectModel from './poms/Home.pom';
 
 
 fixture`Home page tests`

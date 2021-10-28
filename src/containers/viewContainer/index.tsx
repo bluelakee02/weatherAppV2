@@ -1,57 +1,57 @@
-import style from './style.scss';
+import { Router } from '@reach/router';
 import React, { Suspense } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { Router } from '@reach/router';
-import { Loading, NotFound } from '@/components/Messages';
+
+import style from './style.scss';
+
 import ErrorBoundary from '@/components/ErrorBoundary';
+import { Loading, NotFound } from '@/components/Messages';
 
 const LazyLoadedHomeView = React.lazy(
-  () =>
-    import(
-      /* webpackChunkName: "HomeView" */
-      /*webpackMode: "lazy" */
-      /* webpackPrefetch: true */
-      '@/containers/views/Home'
-    ),
+    () =>
+        import(
+            /* webpackChunkName: "HomeView" */
+            /*webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            '@/containers/views/Home'
+        ),
 );
 
 const LazyLoadedFooter = React.lazy(
-  () =>
-    import(
-      /* webpackChunkName: "Footer" */
-      /*webpackMode: "lazy" */
-      /* webpackPrefetch: true */
-      '@/components/Footer'
-    ),
+    () =>
+        import(
+            /* webpackChunkName: "Footer" */
+            /*webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            '@/components/Footer'
+        ),
 );
 
 const LazyLoadedHeader = React.lazy(
-  () =>
-    import(
-      /* webpackChunkName: "Header" */
-      /*webpackMode: "lazy" */
-      /* webpackPrefetch: true */
-      '@/components/Header'
-    ),
+    () =>
+        import(
+            /* webpackChunkName: "Header" */
+            /*webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            '@/components/Header'
+        ),
 );
 
 const ViewsContainer = () => (
-  <ErrorBoundary>
-    <div className={style.mainLayout}>
-      <Suspense fallback={<Loading />}>
-        <LazyLoadedHeader />
-        <main>
-          <Router>
-            {/* @ts-ignore */}
-            <LazyLoadedHomeView path="/" />
-            {/* @ts-ignore */}
-            <NotFound default />
-          </Router>
-        </main>
-        <LazyLoadedFooter />
-      </Suspense>
-    </div>
-  </ErrorBoundary>
+    <ErrorBoundary>
+        <div className={style.mainLayout}>
+            <Suspense fallback={<Loading />}>
+                <LazyLoadedHeader />
+                <main>
+                    <Router>
+                        <LazyLoadedHomeView path="/" />
+                        <NotFound default />
+                    </Router>
+                </main>
+                <LazyLoadedFooter />
+            </Suspense>
+        </div>
+    </ErrorBoundary>
 );
 
 export default hot(ViewsContainer);

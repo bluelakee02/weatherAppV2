@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 const globalSassData = "'./src/assets/styles/variables/_colors.scss', './src/assets/styles/variables/_global.scss', './src/assets/styles/mixins/_shapes.scss'";
 
@@ -47,7 +49,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new CleanWebpackPlugin(), //cleans everything in the output path
-            new ManifestPlugin({fileName: 'manifest.webmanifest'}),
+            new WebpackManifestPlugin({fileName: 'manifest.webmanifest'}),
             new CompressionPlugin({
                 filename: '[path].gz',
                 algorithm: 'gzip',
@@ -94,6 +96,7 @@ module.exports = (env, argv) => {
             filename: '[name].[chunkhash:16].bundle.js',
             chunkFilename: '[name].[chunkhash:16].chunk.js',
             path: path.resolve(__dirname, 'dist'),
+            publicPath: '',
         },
         optimization: {
             moduleIds: 'deterministic',

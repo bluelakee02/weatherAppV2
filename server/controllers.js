@@ -1,7 +1,10 @@
-const {setProperContentType, getFileExtension, parseWeatherData} = require("./utils");
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
+
 const axios = require('axios');
+
+const {setProperContentType, getFileExtension, parseWeatherData} = require("./utils");
 
 exports.compress = (req, res, next) => {
     const brotliFileExist = fs.existsSync(path.join(__dirname, 'dist', req.url + '.br'));
