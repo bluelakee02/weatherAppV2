@@ -1,3 +1,27 @@
+# Simple weather app with own backend
+
+## To run
+
+```
+yarn build
+yarn start
+```
+
+## To test
+
+```
+yarn test
+yarn build
+yarn test:e2e
+```
+
+## To develop
+
+```
+yarn dev:server
+yarn dev
+```
+
 ## Demo
 
 [Demo](https://bl-weather-app.herokuapp.com/)
