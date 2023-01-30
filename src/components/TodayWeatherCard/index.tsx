@@ -3,20 +3,18 @@ import React from 'react';
 import style from './style.scss';
 
 export interface Props {
-    maxTemp?: number;
-    minTemp?: number;
-    weatherState?: string;
+    condition?: string;
     humidity?: number;
     windSpeed?: number;
     date?: number;
     day?: string;
     month?: string;
-    theTemp?: string;
+    temp?: string;
     iconUrl?: string;
 }
 
 const TodayWeatherCard: React.FC<Props> = props => {
-    const { theTemp, iconUrl, weatherState, minTemp, maxTemp, day, month, date, humidity, windSpeed } = props;
+    const { temp, iconUrl, condition, day, month, date, humidity, windSpeed } = props;
 
     return (
         <div className={style.container}>
@@ -24,15 +22,9 @@ const TodayWeatherCard: React.FC<Props> = props => {
                 <h2>
                     {day} {month} {date}
                 </h2>
-                <h3>{weatherState}</h3>
+                <h3>{condition}</h3>
                 <div>
-                    <span>Temperature:</span> {theTemp} °C
-                </div>
-                <div>
-                    <span>Max:</span> {maxTemp} °C
-                </div>
-                <div>
-                    <span>Min:</span> {minTemp} °C
+                    <span>Temperature:</span> {temp} °C
                 </div>
                 <div>
                     <span>Humidity:</span> {humidity} %

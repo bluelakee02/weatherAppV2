@@ -12,8 +12,6 @@
 
 .icon {
   width: 64px;
-  margin-bottom: 25px;
-  margin-left: 25px;
 }
 
 .container {
@@ -28,6 +26,6 @@
 .weatherCardIcon {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
 }

@@ -21,17 +21,27 @@ const getWeatherImage = (weatherState: string) => {
             return Showers;
         case 'Light Rain':
         case 'Heavy Rain':
+        case 'Patchy rain possible':
             return Rain;
         case 'Heavy Cloud':
+        case 'Cloudy':
+        case 'Overcast':
             return HeavyCloud;
+        case 'Sunny':
         case 'Clear':
             return Clear;
         case 'Thunderstorm':
+        case 'Thundery outbreaks possible':
             return ThunderStorm;
         case 'Hail':
         case 'Sleet':
+        case 'Fog':
+        case 'Patchy freezing drizzle possible':
             return Sleet;
         case 'Snow':
+        case 'Blowing snow':
+        case 'Blizzard':
+        case 'Patchy snow possible':
             return Snow;
         default:
             return LightCloud;
@@ -40,21 +50,21 @@ const getWeatherImage = (weatherState: string) => {
 
 const Home: React.FC<RouteComponentProps> = () => {
     const [locationQuery, setLocationQuery] = useState('');
-    const [location, setLocation] = useState({ error: '', title: '', location_type: '' });
+    const [location, setLocation] = useState({ error: undefined, name: '' });
     const [forecast, setForecast] = useState([]);
     const [loading, setLoading] = useState(false);
     const [today, setToday] = useState<Props>();
-    const { error, title } = location;
+    const { error, name } = location;
 
     const onSubmitLocation = async (coords = '') => {
         try {
             setLoading(true);
-            const response = coords ? await fetch(`/getLocation?lattlong=${coords}`) : await fetch(`/getLocation?location=${locationQuery}`);
+            const response = await fetch(`/getLocation?location=${coords ? coords : locationQuery}`);
             setLoading(false);
             const data = await response.json();
             const [locationData, today, ...forecastData] = data;
             setLocation(locationData);
-            setToday(today);
+            setToday(today[0]);
             setForecast(forecastData);
         } catch (err) {
             console.error(err);
@@ -77,7 +87,7 @@ const Home: React.FC<RouteComponentProps> = () => {
         }
     };
 
-    const { weatherState } = today || {};
+    const { condition } = today || {};
 
     return (
         <div className={style.container}>
@@ -99,10 +109,10 @@ const Home: React.FC<RouteComponentProps> = () => {
                         </div>
                     </div>
                 </div>
-                {weatherState && (
+                {condition && (
                     <div className={style.weatherCardSection}>
-                        <div className={style.responsive} style={{ backgroundImage: `url(${getWeatherImage(weatherState || '')})` }}>
-                            <h2 className={style.title}>{title} Today: </h2>
+                        <div className={style.responsive} style={{ backgroundImage: `url(${getWeatherImage(condition || '')})` }}>
+                            <h2 className={style.title}>{name} Today: </h2>
                             <TodayWeatherCard {...today} />
                         </div>
                     </div>

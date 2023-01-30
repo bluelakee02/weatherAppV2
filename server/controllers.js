@@ -4,7 +4,7 @@ const path = require('path');
 
 const axios = require('axios');
 
-const {setProperContentType, getFileExtension, parseWeatherData} = require("./utils");
+const { setProperContentType, getFileExtension, parseWeatherData } = require('./utils');
 
 exports.compress = (req, res, next) => {
     const brotliFileExist = fs.existsSync(path.join(__dirname, 'dist', req.url + '.br'));
@@ -21,37 +21,36 @@ exports.compress = (req, res, next) => {
     }
 
     next();
-}
+};
 
 exports.getLocation = async (req, res) => {
-    const {location, lattlong} = req.query;
+    const { location, lattlong } = req.query;
 
     if (!location && !lattlong) {
-        return res.send([{error: 'No location'}]);
+        return res.send([{ error: 'No location' }]);
     }
 
-    const weatherApi = 'https://www.metaweather.com/api/location/';
+    const weatherApi = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}`;
 
-    const apiRequest = lattlong ? `${weatherApi}search/?lattlong=${lattlong}` : `${weatherApi}search/?query=${location}`
+    const apiRequest = `${weatherApi}&q=${location || lattlong}&days=5&aqi=no&alerts=no`;
 
     try {
         const response = await axios.get(apiRequest);
-        const {data} = response;
+        const {
+            data: { location },
+            error,
+        } = response;
 
-        const woeid = data[0] && data[0].woeid;
-
-        if (!woeid) {
-            return res.send([{error: `Location ${location} not found`}]);
+        if (error) {
+            return res.send([{ error: error.message }]);
         }
-
-        const {data: {consolidated_weather}} = await axios.get(`${weatherApi}${woeid}`);
 
         if (response.status === 200) {
-            return res.send([data[0], ...parseWeatherData(consolidated_weather)])
+            return res.send([location, ...parseWeatherData(response.data)]);
         } else {
-            return res.send([{error: `External api error`}]);
+            return res.send([{ error: `External api error` }]);
         }
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
-}
+};
