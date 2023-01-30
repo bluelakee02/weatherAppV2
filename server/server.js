@@ -23,7 +23,7 @@ app.use(
             directives: {
                 defaultSrc: ["'self'"],
                 scriptSrc: ["'self'"],
-                imgSrc: ["'self'", 'https://www.metaweather.com/'],
+                imgSrc: ["'self'", 'https://cdn.weatherapi.com/'],
                 styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
             },
         },
