@@ -52,5 +52,9 @@ exports.getLocation = async (req, res) => {
         }
     } catch (err) {
         console.log(err);
+        if (err?.response?.data?.error?.message) {
+            return res.send([{ error: err.response.data.error.message }]);
+        }
+        return res.send([{ error: err.message }]);
     }
 };
