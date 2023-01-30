@@ -12,8 +12,9 @@ import Sleet from '@/assets/images/sleet.webp';
 import Snow from '@/assets/images/snow.webp';
 import ThunderStorm from '@/assets/images/thunderStorm.webp';
 import Button from '@/components/Button';
-import TodayWeatherCard, { Props } from '@/components/TodayWeatherCard';
+import TodayWeatherCard from '@/components/TodayWeatherCard';
 import WeatherCard from '@/components/WeatherCard';
+import { isObject } from 'lodash';
 
 const getWeatherImage = (weatherState: string) => {
     switch (weatherState) {
@@ -50,11 +51,8 @@ const getWeatherImage = (weatherState: string) => {
 
 const Home: React.FC<RouteComponentProps> = () => {
     const [locationQuery, setLocationQuery] = useState('');
-    const [location, setLocation] = useState({ error: undefined, name: '' });
-    const [forecast, setForecast] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [today, setToday] = useState<Props>();
-    const { error, name } = location;
+    const [data, setData] = useState([]);
 
     const onSubmitLocation = async (coords = '') => {
         try {
@@ -62,14 +60,14 @@ const Home: React.FC<RouteComponentProps> = () => {
             const response = await fetch(`/getLocation?location=${coords ? coords : locationQuery}`);
             setLoading(false);
             const data = await response.json();
-            const [locationData, today, ...forecastData] = data;
-            setLocation(locationData);
-            setToday(today[0]);
-            setForecast(forecastData);
+            setData(data);
         } catch (err) {
             console.error(err);
         }
     };
+
+    const [location, today, ...forecast] = data;
+    const { error, name } = location || {};
 
     useEffect(() => {
         if (navigator.geolocation) {
@@ -113,7 +111,7 @@ const Home: React.FC<RouteComponentProps> = () => {
                     <div className={style.weatherCardSection}>
                         <div className={style.responsive} style={{ backgroundImage: `url(${getWeatherImage(condition || '')})` }}>
                             <h2 className={style.title}>{name} Today: </h2>
-                            <TodayWeatherCard {...today} />
+                            <TodayWeatherCard {...(typeof today === 'object' ? today : {})} />
                         </div>
                     </div>
                 )}
@@ -121,7 +119,7 @@ const Home: React.FC<RouteComponentProps> = () => {
             <section className={style.forecastSection}>
                 <div className={style.subSection}>
                     {forecast.map((forecastData, idx) => (
-                        <WeatherCard {...forecastData} key={idx} />
+                        <WeatherCard {...(typeof today === 'object' ? forecastData : {})} key={idx} />
                     ))}
                 </div>
             </section>

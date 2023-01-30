@@ -32,18 +32,16 @@ exports.parseWeatherData = data => {
 
     const currentDate = new Date(current.last_updated);
 
-    const currentParsedResult = [
-        {
-            temp: current.temp_c,
-            condition: current.condition.text,
-            humidity: current.humidity,
-            windSpeed: current.wind_kph,
-            date: currentDate.getDate(),
-            day: days[currentDate.getDay()],
-            month: months[currentDate.getMonth()],
-            iconUrl: `https:${current.condition.icon}`,
-        },
-    ];
+    const currentParsedResult = {
+        temp: current.temp_c,
+        condition: current.condition.text,
+        humidity: current.humidity,
+        windSpeed: current.wind_kph,
+        date: currentDate.getDate(),
+        day: days[currentDate.getDay()],
+        month: months[currentDate.getMonth()],
+        iconUrl: `https:${current.condition.icon}`,
+    };
 
     const forecastParsedResult = forecastday.map(({ day, date }) => ({
         maxTemp: day.maxtemp_c,
