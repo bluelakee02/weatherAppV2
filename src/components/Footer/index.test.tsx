@@ -19,6 +19,6 @@ describe('Footer test', () => {
   });
 
   it('Renders static HTML', () => {
-    expect(render(<Footer/>).text()).toEqual('blueLake 2020thx to MetaWeather');
+    expect(render(<Footer/>).text()).toEqual('blueLake 2020Powered by WeatherAPI.com');
   });
 });

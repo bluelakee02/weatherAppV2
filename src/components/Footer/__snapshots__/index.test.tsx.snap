@@ -8,15 +8,13 @@ exports[`Footer test Matches the snapshot 1`] = `
     blueLake 2020
   </h2>
   <div>
-    <span>
-      thx to 
-    </span>
+    Powered by
+     
     <a
-      href="https://www.metaweather.com/"
-      rel="noopener, noreferrer"
-      target="_blank"
+      href="https://www.weatherapi.com/"
+      title="Free Weather API"
     >
-      MetaWeather
+      WeatherAPI.com
     </a>
   </div>
 </footer>
