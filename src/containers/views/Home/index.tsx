@@ -1,4 +1,5 @@
 import { RouteComponentProps } from '@reach/router';
+import { isObject } from 'lodash';
 import React, { useEffect, useState } from 'react';
 
 import style from './style.scss';
@@ -14,7 +15,6 @@ import ThunderStorm from '@/assets/images/thunderStorm.webp';
 import Button from '@/components/Button';
 import TodayWeatherCard from '@/components/TodayWeatherCard';
 import WeatherCard from '@/components/WeatherCard';
-import { isObject } from 'lodash';
 
 const getWeatherImage = (weatherState: string) => {
     switch (weatherState) {

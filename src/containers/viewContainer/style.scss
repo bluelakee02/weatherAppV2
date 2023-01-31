@@ -1,39 +1,18 @@
 .mainLayout {
-  color: $grey-02;
-  background-color: #fff;
-  display: grid;
-  grid-template-rows: 1fr minmax(750px, 5fr) 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    'header'
-    'main'
-    'footer';
-  height: 100%;
-  width: 100%;
-  grid-gap: 20px;
+    color: $grey-02;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 
 main {
-  margin: 0 10%;
+    margin: 20px 10%;
 }
 
-@media screen and (max-width: $breakpoint-desktop-large) {
-  .mainLayout {
-    grid-column-gap: 10px;
-    grid-template-rows: 1fr 900px 1fr;
-  }
-}
-
-@media screen and (max-width: $breakpoint-desktop) {
-  .mainLayout {
-    grid-column-gap: 10px;
-    grid-template-rows: 1fr 1150px 1fr;
-  }
-}
-
-@media screen and (max-width: $breakpoint-tablet-small) {
-  .mainLayout {
-    grid-column-gap: 10px;
-    grid-template-rows: 1fr 1500px 1fr;
-  }
+@media screen and (min-width: $breakpoint-desktop-large) {
+    main {
+        height: 100%;
+    }
 }
