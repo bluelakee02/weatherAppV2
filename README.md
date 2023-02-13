@@ -28,4 +28,4 @@ yarn dev
 
 ## Tests status
 
-[![Jest and e2e tests](https://github.com/bluelakee02/weatherApp/actions/workflows/tests-workflow.yml/badge.svg)](https://github.com/bluelakee02/weatherApp/actions/workflows/tests-workflow.yml)
+[![Jest and e2e tests](https://github.com/bluelakee02/weatherAppV2/actions/workflows/tests-workflow.yml/badge.svg)](https://github.com/bluelakee02/weatherApp/actions/workflows/tests-workflow.yml)
